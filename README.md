@@ -1,3 +1,1 @@
-# SMU-Project-02
-
-Testing things
+# Outdoor-Adventures
