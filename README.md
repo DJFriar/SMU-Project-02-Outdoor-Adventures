@@ -1,1 +1,1 @@
-# SMU-Project-02
+# Outdoor-Adventures
