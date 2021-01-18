@@ -1,7 +1,4 @@
-
-
-.login-background {
-  background-image: url("../images/loginBackground.jpg");
+.fullpage-background-img {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -9,10 +6,33 @@
   image-rendering: optimizeQuality;
 }
 
-.login-container {
+.general-form-container {
   margin-top: 100px;
   background-color: rgb(219, 217, 225, 0.8);
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   max-width: 700px;
 }
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.login-background {
+  background-image: url("../images/loginBackground.jpg");
+}
+
+.login-btn {
+  margin-top: 5px;
+}
+
+.signup-background {
+  background-image: url("../images/signupBackground.jpg");
+}
+
+.signup-btn {
+  margin-top: 5px;
+}
+
+
