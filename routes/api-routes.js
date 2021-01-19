@@ -50,4 +50,13 @@ module.exports = function(app) {
       });
     }
   });
+  app.post("/api/parks", (req, res) => {
+    db.Park.create({
+      name: req.body.name,
+      designation: req.body.designation,
+      parkId: req.body.parkId
+    }).then(() => {
+      res.status(202).send();
+    });
+  });
 };
