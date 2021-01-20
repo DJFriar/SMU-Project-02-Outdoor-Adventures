@@ -14,7 +14,10 @@ function seedParks(cb) {
         parksArray.push({
           name: park.fullName,
           designation: park.designation,
-          parkid: park.parkCode
+          parkid: park.parkCode,
+          lat: park.latitude,
+          long: park.longitude,
+          states: park.states
         });
       });
 
