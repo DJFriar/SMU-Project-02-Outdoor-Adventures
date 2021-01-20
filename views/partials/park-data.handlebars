@@ -1,0 +1,8 @@
+<li>
+  <button class="uk-button uk-button-default delete-park" data-id="{{this.id}}"><span class="fas fa-trash"></span></button>
+	<span class="park-name">{{name}}</span>
+
+	<button class="uk-button uk-button-default change-status" data-id="{{id}}" data-newstatus="{{visited}}">
+		{{#if visited}}<span class="fas fa-utensils"> Visit Park</span>{{else}}<span class="fas fa-poop"> Forget</span>{{/if}}
+	</button>
+</li>

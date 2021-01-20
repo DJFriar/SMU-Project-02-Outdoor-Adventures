@@ -1,0 +1,23 @@
+<div class="profile-background fullpage-background-img">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <div class="container general-form-container">
+      <h2 class="text-center">All Parks</h2>
+      <div class="row">
+          <div class="col-sm">
+            <p>All Parks in the DB are:</p>
+            <ul>
+              {{#each parks}}
+              <li>{{ this.name }}&nbsp;<button>Button</button></li>
+              {{/each}}
+            </ul>
+          </div>
+      </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
