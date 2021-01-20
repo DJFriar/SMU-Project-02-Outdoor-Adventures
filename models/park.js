@@ -12,6 +12,18 @@ module.exports = function(sequelize, DataTypes) {
     parkid: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    states: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lat: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    long: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
