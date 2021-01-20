@@ -1,8 +1,27 @@
+/* eslint-disable prefer-arrow-callback */
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
 
 module.exports = function(app) {
+  // Get all parks
+  app.get("/api/parks", function(req, res) {
+    db.Post.all(function(data) {
+      const hbsObject = {
+        parks: data
+      };
+      console.log(hbsObject);
+      res.render("index", hbsObject);
+    });
+  });
+
+  // Get all profiles
+  app.get("/api/profiles", function(req, res) {
+    db.Post.findAll({}).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -50,6 +69,7 @@ module.exports = function(app) {
       });
     }
   });
+
   app.post("/api/parks", (req, res) => {
     db.Park.create({
       name: req.body.name,
