@@ -74,7 +74,7 @@ module.exports = function(app) {
     db.Park.create({
       name: req.body.name,
       designation: req.body.designation,
-      parkId: req.body.parkId
+      parkid: req.body.parkid
     }).then(() => {
       res.status(202).send();
     });
