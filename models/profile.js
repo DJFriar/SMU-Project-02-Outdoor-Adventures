@@ -8,10 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    isWishlist: {
-      type: DataTypes.BOOLEAN,
-      default: 0
-    },
     hasVisited: {
       type: DataTypes.BOOLEAN,
       default: 0
