@@ -6,7 +6,6 @@ function seedParks(cb) {
   axios.get("https://developer.nps.gov/api/v1/parks?&api_key=3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF&limit=468")
     .then((response) => {
       // handle success
-      //console.log(response.data.data);
       const parks = response.data.data;
       const parksArray = [];
 
