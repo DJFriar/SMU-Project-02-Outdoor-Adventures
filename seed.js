@@ -1,27 +1,35 @@
-function seedParks() {
-  const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF&limit=468";
-  const queryUrl = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey;
+const axios = require("axios");
+const db = require("./models");
 
-  $.ajax({
-    url: queryUrl,
-    method: "GET"
-  }).then(response => {
-    console.log(response);
-    let i = 0;
-    for (i < response.length; i++;) {
-      const name = response.data[i].fullName;
-      const designation = response.data[i].designation;
-      const parkId = response.data[i].parkCode;
-      console.log(parkId);
+function seedParks(cb) {
 
-      $.post("/api/parks", {
-        name: name,
-        designation: designation,
-        parkid: parkId
+  axios.get("https://developer.nps.gov/api/v1/parks?&api_key=3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF&limit=468")
+    .then((response) => {
+      // handle success
+      //console.log(response.data.data);
+      const parks = response.data.data;
+      const parksArray = [];
+
+      parks.forEach(park => {
+        parksArray.push({
+          name: park.fullName,
+          designation: park.designation,
+          parkid: park.parkCode
+        });
       });
-    }
-  });
+
+      db.Park.destroy({ truncate : true, cascade: false }).then(() => {
+        db.Park.bulkCreate(parksArray).then(() => {
+          console.log("parks db populated");
+          cb();
+        }).catch(error => {
+          // handle error
+          console.log(error);
+        });
+      }).catch(err => {
+        console.log(err);
+      });
+    });
 }
-module.exports = {
-  seedParks:seedParks
-};
+
+module.exports = seedParks;
