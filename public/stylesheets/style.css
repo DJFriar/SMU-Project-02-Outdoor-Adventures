@@ -11,7 +11,7 @@
   background-color: rgb(219, 217, 225, 0.8);
   padding: 25px;
   border-radius: 10px;
-  max-width: 700px;
+  max-width: 90%;
 }
 
 .form-group {
@@ -37,4 +37,15 @@
 
 .profile-background {
   background-image: url("../images/profileBackground.jpg");
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  list-style-type: none;
+  color: #000;
+}
+
+h2 {
+  margin-bottom: 1.5em;
 }
