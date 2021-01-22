@@ -32,7 +32,6 @@ module.exports = function (app) {
       const hbsObject = {
         parks: newArray
       };
-      console.log(hbsObject);
       res.render("profile", hbsObject);
     });
   });
@@ -88,7 +87,6 @@ module.exports = function (app) {
   });
 
   app.get("/parks/:parkid", (req, res) => {
-
     const parkCode = req.params.parkid;
     const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF";
     const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
