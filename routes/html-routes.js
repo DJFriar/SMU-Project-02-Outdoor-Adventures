@@ -75,11 +75,7 @@ module.exports = function (app) {
         } 
       });
     }
-
     console.log(queryStringTwo + ";");
-
-    //const queryString = `Select * From parks Where locate('${parkName}', name)>0;`;
-
     db.sequelize.query(queryStringTwo, {
       type: db.sequelize.QueryTypes.SELECT
     })
@@ -87,9 +83,9 @@ module.exports = function (app) {
         const hbsObject = {
           parks: results
         };
-        // We don't need spread here, since only the results will be returned for select queriesx
         res.render("parks", hbsObject);
       });
+  });
 
   app.get("/parks/:parkid", (req, res) => {
     // Get all parks
