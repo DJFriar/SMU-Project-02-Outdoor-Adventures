@@ -58,26 +58,29 @@ module.exports = function (app) {
   app.get("/parks/search", (req, res) => {
     let parkName;
     let statesArr;
-    let queryStringTwo = "Select * From parks Where";
+    let queryString = "Select * From parks Where";
 
     if (req.query.name) {
       parkName = req.query.name;
-      queryStringTwo += ` locate('${parkName}', name)>0`;
+      queryString += ` locate('${parkName}', name)>0`;
     }
     if (req.query.states) {
       statesArr = req.query.states.split(",");
       statesArr.forEach((state, index) => {
         if (index === 0 && parkName) {
-          queryStringTwo += ` AND locate('${state}', states)>0`;
+          queryString += ` AND locate('${state}', states)>0`;
         } else if (index === 0 && !parkName) {
-          queryStringTwo += ` locate('${state}', states)>0`;
+          queryString += ` locate('${state}', states)>0`;
         } else {
-          queryStringTwo += ` OR locate('${state}', states)>0`;
-        }
+          queryString += ` OR locate('${state}', states)>0`;
+        } 
       });
     }
-    console.log(queryStringTwo + ";");
-    db.sequelize.query(queryStringTwo, {
+    if (!req.query.name && !req.query.states) {
+      queryString = "Select * From parks";
+    }
+
+    db.sequelize.query(queryString, {
       type: db.sequelize.QueryTypes.SELECT
     })
       .then((results) => {
