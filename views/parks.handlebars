@@ -7,11 +7,9 @@
   </nav>
   <div class="container general-form-container">
     <h2 class="text-center">All Parks</h2>
-
     <div class="search-container">
       <form action="/parks/search" method="GET" class="search-form">
-        <h3 class="text-center">Search</h3>
-
+        <h4 class="text-center">Search</h4>
         <div class="form-group">
           <input type="text" placeholder="Search by park name" class="text-center search-input form-control">
           <button type="submit" class="search-submit-btn">Search</button>
@@ -85,37 +83,32 @@
             </div>
           </div>
         </div>         
-          
       </form>
     </div>
 
-
-    <div class="container general-form-container">
-      <h2 class="text-center">All Parks</h2>
-      <table class="table table-sm">
-        <thead>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">National Park Name</th>
+          <th>Designation</th>
+          <th>States</th>
+          <th scope="col">Wishlist</th>
+          <th scope="col">Visited</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each parks}}
           <tr>
-            <th scope="col">National Park Name</th>
-            <th scope="col">States</th>
-            <th scope="col">Designation</th>
-            <th scope="col">Wishlist</th>
-            <th scope="col">Visited</th>
+            <td><a href="/parks/{{this.parkid}}" target="_blank"><span class="fas fa-info-circle"></span></a>&nbsp;{{ this.name }}</td>
+            <td>{{ this.designation }}</td>
+            <td>{{ this.states }}</td>
+            <td><span class="fas fa-list-ul"> Add to Wishlist</span></td>
+            <td><span class="fas fa-check"> Add to Visited</span></td>
           </tr>
-        </thead>
-        <tbody>
-          {{#each parks}}
-            <tr>
-              <td><a href="/parks/{{this.parkid}}" target="_blank"><span class="fas fa-info-circle"></span></a>&nbsp;{{ this.name }}</td>
-              <td>{{this.states}}</td>
-              <td>{{ this.designation }}</td>
-              <td><span class="fas fa-list-ul"> Add to Wishlist</span></td>
-              <td><span class="fas fa-check"> Add to Visited</span></td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
