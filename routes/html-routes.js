@@ -98,7 +98,6 @@ module.exports = function (app) {
       console.log(parkObj);
       res.render("park-detail", parkObj);
     });
-   
   });
 
 };
