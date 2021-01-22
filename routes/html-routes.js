@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 const db = require("../models");
+const axios = require("axios");
 //const sequelize = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -53,26 +54,29 @@ module.exports = function (app) {
   app.get("/parks/search", (req, res) => {
     let parkName;
     let statesArr;
-    let queryStringTwo = "Select * From parks Where";
+    let queryString = "Select * From parks Where";
 
     if (req.query.name) {
       parkName = req.query.name;
-      queryStringTwo += ` locate('${parkName}', name)>0`;
+      queryString += ` locate('${parkName}', name)>0`;
     }
     if (req.query.states) {
       statesArr = req.query.states.split(",");
       statesArr.forEach((state, index) => {
         if (index === 0 && parkName) {
-          queryStringTwo += ` AND locate('${state}', states)>0`;
+          queryString += ` AND locate('${state}', states)>0`;
         } else if (index === 0 && !parkName) {
-          queryStringTwo += ` locate('${state}', states)>0`;
+          queryString += ` locate('${state}', states)>0`;
         } else {
-          queryStringTwo += ` OR locate('${state}', states)>0`;
+          queryString += ` OR locate('${state}', states)>0`;
         } 
       });
     }
-    console.log(queryStringTwo + ";");
-    db.sequelize.query(queryStringTwo, {
+    if (!req.query.name && !req.query.states) {
+      queryString = "Select * From parks";
+    }
+
+    db.sequelize.query(queryString, {
       type: db.sequelize.QueryTypes.SELECT
     })
       .then((results) => {
@@ -84,21 +88,17 @@ module.exports = function (app) {
   });
 
   app.get("/parks/:parkid", (req, res) => {
-    // Get all parks
-    db.Park.findAll({
-      where: {
-        parkid: req.params.parkid
-      }
-    }).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
-      });
-      const hbsObject = {
-        parks: newArray
-      };
-      console.log(hbsObject);
-      res.render("park-detail", hbsObject);
+
+    const parkCode = req.params.parkid;
+    const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF";
+    const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
+    
+    axios.get(url).then((response) => {
+      const parkObj = response.data.data[0];
+      console.log(parkObj);
+      res.render("park-detail", parkObj);
     });
+   
   });
 
 };
