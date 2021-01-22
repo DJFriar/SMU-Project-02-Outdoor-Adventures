@@ -5,6 +5,7 @@ const db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+// const { query } = require("express");
 
 module.exports = function (app) {
   app.get("/", (req, res) => {
@@ -90,6 +91,22 @@ module.exports = function (app) {
         res.render("parks", hbsObject);
       });
 
+  app.get("/parks/:parkid", (req, res) => {
+    // Get all parks
+    db.Park.findAll({
+      where: {
+        parkid: req.params.parkid
+      }
+    }).then(data => {
+      const newArray = data.map(element => {
+        return element.dataValues;
+      });
+      const hbsObject = {
+        parks: newArray
+      };
+      console.log(hbsObject);
+      res.render("park-detail", hbsObject);
+    });
   });
 
   // Here we've add our isAuthenticated middleware to this route.
