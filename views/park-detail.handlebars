@@ -6,12 +6,15 @@
         </div>
     </nav>
     <div class="container general-form-container">
-      {{#each parks}}
-        <h2 class="text-center">{{ name }} </h2>
-        <p>Details go here</p>
-        <p>{{id}}</p>
-        <p>{{lat}}</p>
-      {{/each}}
+  
+        <h2 class="text-center">{{ this.fullName }} </h2>
+        <p>{{this.description}}</p>
+        <p>{{this.images.[0].url}}</p>
+        {{!-- <p>{{this.images.[0].url}}</p> --}}
+        <img src={{this.images.[0].url}}>
+        {{!-- <p>{{this.id}}</p>
+        <p>{{this.lat}}</p> --}}
+  
     </div>
 </div>
 

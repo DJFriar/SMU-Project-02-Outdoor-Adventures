@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 const db = require("../models");
+const axios = require("axios");
 //const sequelize = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -91,21 +92,17 @@ module.exports = function (app) {
   });
 
   app.get("/parks/:parkid", (req, res) => {
-    // Get all parks
-    db.Park.findAll({
-      where: {
-        parkid: req.params.parkid
-      }
-    }).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
-      });
-      const hbsObject = {
-        parks: newArray
-      };
-      console.log(hbsObject);
-      res.render("park-detail", hbsObject);
+
+    const parkCode = req.params.parkid;
+    const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF";
+    const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
+    
+    axios.get(url).then((response) => {
+      const parkObj = response.data.data[0];
+      console.log(parkObj);
+      res.render("park-detail", parkObj);
     });
+   
   });
 
   // Here we've add our isAuthenticated middleware to this route.
