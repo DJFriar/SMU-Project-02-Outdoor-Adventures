@@ -1,4 +1,5 @@
 // Requiring path to so we can use relative routes to our HTML files
+require("dotenv").config();
 const db = require("../models");
 const axios = require("axios");
 //const sequelize = require("sequelize");
@@ -88,7 +89,7 @@ module.exports = function (app) {
 
   app.get("/parks/:parkid", (req, res) => {
     const parkCode = req.params.parkid;
-    const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF";
+    const apiKey = process.env.APIKEY;
     const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
     
     axios.get(url).then((response) => {
