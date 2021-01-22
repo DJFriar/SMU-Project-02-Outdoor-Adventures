@@ -5,10 +5,10 @@
             </div>
         </div>
     </nav>
-    <div class="container general-form-container">
+    <div class="container general-form-container detail-div">
       {{#each parks}}
         <h2 class="text-center">{{ name }} </h2>
-        <p>Details go here</p>
+        <p class = "park-detail">Details go here</p>
         <p>{{id}}</p>
         <p>{{lat}}</p>
       {{/each}}
@@ -16,3 +16,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/park-detail.js"></script>
+
