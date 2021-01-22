@@ -1,40 +1,44 @@
 <div class="profile-background fullpage-background-img">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            </div>
-        </div>
-    </nav>
-    <div class="container general-form-container">
-                <h2 class="text-center">My Parks</h2>
-        
-            <div class="row">
-                <div class="col-sm">
-                  <p>Wishlist parks go in here.</p>
-                  <ul>
-                    {{#each parks}}
-                    <li>{{ this.name }}</li>
-                      {{!-- {{#unless sleepy}}
-                        {{> cats/cat-block sleep=true}}
-                      {{/unless}} --}}
-                    {{/each}}
-                  </ul>
-                </div>
-                <div class="col-sm">
-                  <p>Visited parks go in here.</p>
-                  <ul>
-                    {{#each parks}}
-                    <li>{{ this.name }}</li>
-                      {{!-- {{#unless sleepy}}
-                        {{> cats/cat-block sleep=true}}
-                      {{/unless}} --}}
-                    {{/each}}
-                  </ul>
-                </div>
-            </div>
-
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
     </div>
-
+  </nav>
+  {{!-- Begin User Data Section --}}
+  <div class="container general-form-container">
+    <h2 class="text-center">My Info</h2>
+    <div class="row">
+      <div class="col-sm">
+        <p>Username:</p>
+      </div>
+      <div class="col-sm">
+        <p>Home Zip:</p>
+      </div>
+    </div>
+  </div>
+  {{!-- Begin Park Data Section --}}
+  <div class="container general-form-container">
+    <h2 class="text-center">My Parks</h2>
+    <div class="row">
+      <div class="col-sm">
+        <p>Wishlist parks go in here.</p>
+        <ul>
+          {{#each parks}}
+          <li>{{ this.name }}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-sm">
+        <p>Visited parks go in here.</p>
+        <ul>
+          {{#each parks}}
+          <li>{{ this.name }}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 
