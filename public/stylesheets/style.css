@@ -45,6 +45,14 @@ border-radius: 6px;
     background-image: url("../images/loginBackground.jpg");
 }
 
+.parks-background {
+    background-image: url("../images/profileBackground.jpg");
+}
+
+.profile-background {
+    background-image: url("../images/profileBackground.jpg");
+}
+
 .login-btn {
     margin-top: 5px;
 }
