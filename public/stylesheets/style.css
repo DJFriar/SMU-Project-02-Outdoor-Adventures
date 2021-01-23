@@ -1,9 +1,9 @@
 .fullpage-background-img {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  image-rendering: optimizeQuality;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+  image-rendering: optimizeQuality !important;
 }
 
 .general-form-container {
@@ -44,9 +44,9 @@ border-radius: 6px;
   margin-top: 5px;
 }
 
-.profile-background {
+/* .profile-background {
   background-image: url("../images/profileBackground.jpg");
-}
+} */
 
 li {
   padding: 5px;
