@@ -120,11 +120,26 @@ module.exports = function (app) {
     const parkCode = req.params.parkid;
     const apiKey = process.env.APIKEY;
     const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
+    const paths = ["/images/loginBackground.jpg","/images/loginBackground2.jpg","/images/loginBackground3.webp"
+    ];
+    const arrayLength = paths.length-1;
+    const randomGen = paths[Math.floor(Math.random() * arrayLength) + 1 ];
+    console.log(randomGen);
     
     axios.get(url).then((response) => {
       const parkObj = response.data.data[0];
+      parkObj.randomImage = randomGen;
       console.log(parkObj);
       res.render("park-detail", parkObj);
     });
   });
+<<<<<<< HEAD
 };
+=======
+
+};
+
+  
+
+
+>>>>>>> 1911branch
