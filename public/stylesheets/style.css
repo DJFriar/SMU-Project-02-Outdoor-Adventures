@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 li {
     padding: 5px;
     margin: 5px;
@@ -8,7 +12,6 @@ li {
 h2 {
     margin-bottom: 1.5em;
 }
-
 
 .fullpage-background-img {
     background-size: cover;
@@ -24,6 +27,12 @@ h2 {
     padding: 25px;
     border-radius: 10px;
     max-width: 90%;
+}
+
+@media (max-width: 800px) {
+    .general-form-container {
+        max-width: 100%;
+    }
 }
 
 .general-form-container img{
@@ -112,3 +121,6 @@ border-radius: 6px;
   color: #000;
 }
 
+.maxwidth-700 {
+    max-width: 700px;
+}
