@@ -14,19 +14,19 @@ h2 {
 }
 
 .fullpage-background-img {
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    image-rendering: optimizeQuality;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+  image-rendering: optimizeQuality !important;
 }
 
 .general-form-container {
-    margin-top: 100px;
-    background-color: rgb(219, 217, 225, 0.8);
-    padding: 25px;
-    border-radius: 10px;
-    max-width: 90%;
+  margin-top: 100px;
+  background-color: rgb(219, 217, 225, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 90%;
 }
 
 @media (max-width: 800px) {
@@ -59,11 +59,6 @@ border-radius: 6px;
 
 .signup-btn {
     margin-top: 5px;
-}
-
-.profile-background {
-    background-image: url("../images/profileBackground.jpg");
-    padding-bottom: 100px;
 }
 
 /* Parks Page */
