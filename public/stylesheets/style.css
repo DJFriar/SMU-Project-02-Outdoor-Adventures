@@ -1,76 +1,120 @@
+li {
+    padding: 5px;
+    margin: 5px;
+    list-style-type: none;
+    color: #000;
+}
+
+h2 {
+    margin-bottom: 1.5em;
+}
+
+
 .fullpage-background-img {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  image-rendering: optimizeQuality;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    image-rendering: optimizeQuality;
 }
 
 .general-form-container {
-  margin-top: 100px;
-  background-color: rgb(219, 217, 225, 0.8);
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 90%;
-  
-
-  
-  
-  
+    margin-top: 100px;
+    background-color: rgb(219, 217, 225, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 90%;
 }
+
 .general-form-container img{
 width: 600px;
 border-radius: 6px;
 }
 
 .form-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .login-background {
-  background-image: url("../images/loginBackground.jpg");
+    background-image: url("../images/loginBackground.jpg");
 }
 
 .login-btn {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .signup-background {
-  background-image: url("../images/signupBackground.jpg");
+    background-image: url("../images/signupBackground.jpg");
 }
 
 .signup-btn {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .profile-background {
-  background-image: url("../images/profileBackground.jpg");
+    background-image: url("../images/profileBackground.jpg");
+    padding-bottom: 100px;
 }
 
-li {
-  padding: 5px;
-  margin: 5px;
-  list-style-type: none;
-  color: #000;
+/* Parks Page */
+.search-container {
+    max-width: 600px;
+    margin: 10px auto 40px auto;
 }
 
-h2 {
-  margin-bottom: 1.5em;
+.search-input-wrapper {
+    display: grid;
+    grid-template-columns: auto 100px;
 }
+
+.search-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-wrapper h4{
+    display: inline-block;
+}
+
+.filter-btn-container {
+    display: inline-block;
+}
+
+.state-dropdown-container {
+    display: grid;
+    grid-template-columns: 70px 70px 70px 70px 70px 70px;
+}
+
+.state-col input {
+    margin: 5px;
+}
+
+.designation-dropdown-container {
+    display: grid;
+    grid-template-columns: 325px 250px;
+}
+
+.all-parks-container h2 {
+    margin-bottom: 10px;
+}
+
 .activities {
   /* height: 10%; */
   /* background-color: blue; */
   /* overflow: scroll; */
 }
+
 .carousel-image{
   margin:auto;
 }
+
 .carousel-caption{
   position: relative;
   left: 0;
   top: 0;
   padding: 2px;
   color: #000;
-  
 }
+

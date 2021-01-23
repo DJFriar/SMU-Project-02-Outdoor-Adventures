@@ -1,5 +1,6 @@
 require("dotenv").config();
 // Requiring path to so we can use relative routes to our HTML files
+require("dotenv").config();
 const db = require("../models");
 const axios = require("axios");
 //const sequelize = require("sequelize");
@@ -55,27 +56,54 @@ module.exports = function (app) {
   app.get("/parks/search", (req, res) => {
     let parkName;
     let statesArr;
-    let queryString = "Select * From parks Where";
+    let desArr;
+    let queryString = "Select * From parks Where";   
 
-    if (req.query.name) {
-      parkName = req.query.name;
-      queryString += ` locate('${parkName}', name)>0`;
-    }
-    if (req.query.states) {
-      statesArr = req.query.states.split(",");
-      statesArr.forEach((state, index) => {
-        if (index === 0 && parkName) {
-          queryString += ` AND locate('${state}', states)>0`;
-        } else if (index === 0 && !parkName) {
-          queryString += ` locate('${state}', states)>0`;
-        } else {
-          queryString += ` OR locate('${state}', states)>0`;
+    if (req.query.name) { parkName = req.query.name; }
+    if (req.query.states) { statesArr = req.query.states.split(","); }
+    if (req.query.des) { desArr = req.query.des.split(","); }
+
+    if (parkName && statesArr && desArr) {
+      for (let i = 0; i < statesArr.length; i++) { 
+        for (let j = 0; j < desArr.length; j++) {
+          queryString += (i === 0 && j === 0) ? " " : " OR "; 
+          queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0 AND designation = '${desArr[j]}'`;
+        }
+      }
+    } else if (statesArr && desArr) {
+      for (let i = 0; i < statesArr.length; i++) { 
+        for (let j = 0; j < desArr.length; j++) {
+          queryString += (i === 0 && j === 0) ? " " : " OR ";
+          queryString += `locate('${statesArr[i]}', states)>0 AND designation = '${desArr[j]}'`;
+        }
+      }
+    } else if (parkName && statesArr) {
+      for (let i = 0; i < statesArr.length; i++) {
+        queryString += (i === 0) ? " " : " OR ";
+        queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0`;
+      }
+    } else if (parkName && desArr) {
+      for (let i = 0; i < desArr.length; i++) {
+        queryString += (i === 0) ? " " : " OR ";
+        queryString += `locate('${parkName}', name)>0 AND designation = '${desArr[i]}'`;
+      }
+    } else {
+      if (parkName) { queryString += ` locate('${parkName}', name)>0;`; } 
+      else if (statesArr) {
+        for (let i = 0; i < statesArr.length; i++) {
+          queryString += (i === 0) ? " " : " OR ";
+          queryString += ` locate('${statesArr[i]}', states)>0`;
         } 
-      });
+      } else if (desArr) {
+        for (let i = 0; i < desArr.length; i++) {
+          queryString += (i === 0) ? " " : " OR ";
+          queryString += `designation = '${desArr[i]}'`;
+        }
+      }
     }
-    if (!req.query.name && !req.query.states) {
-      queryString = "Select * From parks";
-    }
+
+    console.log("---------------------------------");
+    console.log(queryString);
 
     db.sequelize.query(queryString, {
       type: db.sequelize.QueryTypes.SELECT
@@ -99,5 +127,4 @@ module.exports = function (app) {
       res.render("park-detail", parkObj);
     });
   });
-
 };
