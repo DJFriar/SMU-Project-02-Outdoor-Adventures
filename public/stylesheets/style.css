@@ -11,6 +11,7 @@ h2 {
 
 
 .fullpage-background-img {
+<<<<<<< HEAD
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -24,6 +25,26 @@ h2 {
     padding: 25px;
     border-radius: 10px;
     max-width: 90%;
+=======
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+  image-rendering: optimizeQuality !important;
+}
+
+.general-form-container {
+  margin-top: 100px;
+  background-color: rgb(219, 217, 225, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 90%;
+   
+
+  
+  
+  
+>>>>>>> 1911branch
 }
 
 .general-form-container img{
@@ -52,10 +73,16 @@ border-radius: 6px;
     margin-top: 5px;
 }
 
+<<<<<<< HEAD
 .profile-background {
     background-image: url("../images/profileBackground.jpg");
     padding-bottom: 100px;
 }
+=======
+/* .profile-background {
+  background-image: url("../images/profileBackground.jpg");
+} */
+>>>>>>> 1911branch
 
 /* Parks Page */
 .search-container {
