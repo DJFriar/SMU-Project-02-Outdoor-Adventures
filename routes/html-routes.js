@@ -8,7 +8,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the profile page
     if (req.user) {
       res.redirect("/profile");
     } else {
@@ -17,7 +17,7 @@ module.exports = function (app) {
   });
 
   app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the profile page
     if (req.user) {
       res.redirect("/profile");
     } else {
@@ -26,14 +26,12 @@ module.exports = function (app) {
   });
 
   app.get("/profile", isAuthenticated, (req, res) => {
-    // Get all profiles
-    db.Park.findAll({}).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
-      });
+    db.sequelize.query("SELECT * FROM Profiles pr INNER JOIN Parks p ON pr.parkID = p.parkID WHERE userID = " + req.user.id, { 
+      type: db.sequelize.QueryTypes.SELECT }).then(data => {
       const hbsObject = {
-        parks: newArray
+        profiles: data
       };
+      console.log(hbsObject);
       res.render("profile", hbsObject);
     });
   });
@@ -47,7 +45,6 @@ module.exports = function (app) {
       const hbsObject = {
         parks: data
       };
-      //console.log(hbsObject);
       res.render("parks", hbsObject);
     });
   });
