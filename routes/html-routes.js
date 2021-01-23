@@ -52,25 +52,25 @@ module.exports = function (app) {
   app.get("/parks/search", (req, res) => {
     let parkName;
     let statesArr;
-    let desArr;
+    let designationArr;
     let queryString = "Select * From parks Where";   
 
     if (req.query.name) { parkName = req.query.name; }
     if (req.query.states) { statesArr = req.query.states.split(","); }
-    if (req.query.des) { desArr = req.query.des.split(","); }
+    if (req.query.des) { designationArr = req.query.des.split(","); }
 
-    if (parkName && statesArr && desArr) {
+    if (parkName && statesArr && designationArr) {
       for (let i = 0; i < statesArr.length; i++) { 
-        for (let j = 0; j < desArr.length; j++) {
+        for (let j = 0; j < designationArr.length; j++) {
           queryString += (i === 0 && j === 0) ? " " : " OR "; 
-          queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0 AND designation = '${desArr[j]}'`;
+          queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0 AND designation = '${designationArr[j]}'`;
         }
       }
-    } else if (statesArr && desArr) {
+    } else if (statesArr && designationArr) {
       for (let i = 0; i < statesArr.length; i++) { 
-        for (let j = 0; j < desArr.length; j++) {
+        for (let j = 0; j < designationArr.length; j++) {
           queryString += (i === 0 && j === 0) ? " " : " OR ";
-          queryString += `locate('${statesArr[i]}', states)>0 AND designation = '${desArr[j]}'`;
+          queryString += `locate('${statesArr[i]}', states)>0 AND designation = '${designationArr[j]}'`;
         }
       }
     } else if (parkName && statesArr) {
@@ -78,10 +78,10 @@ module.exports = function (app) {
         queryString += (i === 0) ? " " : " OR ";
         queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0`;
       }
-    } else if (parkName && desArr) {
-      for (let i = 0; i < desArr.length; i++) {
+    } else if (parkName && designationArr) {
+      for (let i = 0; i < designationArr.length; i++) {
         queryString += (i === 0) ? " " : " OR ";
-        queryString += `locate('${parkName}', name)>0 AND designation = '${desArr[i]}'`;
+        queryString += `locate('${parkName}', name)>0 AND designation = '${designationArr[i]}'`;
       }
     } else {
       if (parkName) { queryString += ` locate('${parkName}', name)>0;`; } 
@@ -90,10 +90,10 @@ module.exports = function (app) {
           queryString += (i === 0) ? " " : " OR ";
           queryString += ` locate('${statesArr[i]}', states)>0`;
         } 
-      } else if (desArr) {
-        for (let i = 0; i < desArr.length; i++) {
+      } else if (designationArr) {
+        for (let i = 0; i < designationArr.length; i++) {
           queryString += (i === 0) ? " " : " OR ";
-          queryString += `designation = '${desArr[i]}'`;
+          queryString += `designation = '${designationArr[i]}'`;
         }
       }
     }
