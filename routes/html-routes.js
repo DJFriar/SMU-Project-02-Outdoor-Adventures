@@ -1,9 +1,7 @@
 require("dotenv").config();
 // Requiring path to so we can use relative routes to our HTML files
-require("dotenv").config();
 const db = require("../models");
 const axios = require("axios");
-//const sequelize = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -22,8 +20,9 @@ module.exports = function (app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/profile");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/profile", isAuthenticated, (req, res) => {
@@ -41,12 +40,12 @@ module.exports = function (app) {
 
   app.get("/parks", isAuthenticated, (req, res) => {
     // Get all parks
-    db.Park.findAll({}).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
+    db.Park.findAll({raw: true}).then(data => {
+      data.forEach(item => {
+        item.statesFormatted = item.states.split(",").join(", ");
       });
       const hbsObject = {
-        parks: newArray
+        parks: data
       };
       //console.log(hbsObject);
       res.render("parks", hbsObject);
@@ -109,6 +108,10 @@ module.exports = function (app) {
       type: db.sequelize.QueryTypes.SELECT
     })
       .then((results) => {
+        results.forEach(item => {
+          item.statesFormatted = item.states.split(",").join(", ");
+        });
+        
         const hbsObject = {
           parks: results
         };
