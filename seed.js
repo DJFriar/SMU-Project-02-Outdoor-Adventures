@@ -1,9 +1,10 @@
+require("dotenv").config();
 const axios = require("axios");
 const db = require("./models");
 
 function seedParks(cb) {
-
-  axios.get("https://developer.nps.gov/api/v1/parks?&api_key=3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF&limit=468")
+  const apiKey = process.env.APIKEY;
+  axios.get("https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&limit=468")
     .then((response) => {
       // handle success
       const parks = response.data.data;

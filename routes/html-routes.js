@@ -3,14 +3,13 @@ require("dotenv").config();
 require("dotenv").config();
 const db = require("../models");
 const axios = require("axios");
-//const sequelize = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the profile page
     if (req.user) {
       res.redirect("/profile");
     } else {
@@ -19,28 +18,26 @@ module.exports = function (app) {
   });
 
   app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the profile page
     if (req.user) {
       res.redirect("/profile");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/profile", isAuthenticated, (req, res) => {
-    // Get all profiles
-    db.Park.findAll({}).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
-      });
+    db.sequelize.query("SELECT * FROM Profiles pr INNER JOIN Parks p ON pr.parkID = p.parkID WHERE userID = " + req.user.id, { 
+      type: db.sequelize.QueryTypes.SELECT }).then(data => {
       const hbsObject = {
-        parks: newArray
+        profiles: data
       };
+      console.log(hbsObject);
       res.render("profile", hbsObject);
     });
   });
 
   app.get("/parks", isAuthenticated, (req, res) => {
-    // Get all parks
     db.Park.findAll({}).then(data => {
       const newArray = data.map(element => {
         return element.dataValues;
@@ -48,7 +45,6 @@ module.exports = function (app) {
       const hbsObject = {
         parks: newArray
       };
-      //console.log(hbsObject);
       res.render("parks", hbsObject);
     });
   });
