@@ -24,16 +24,20 @@
       <div class="col-sm">
         <p>Wishlist parks go in here.</p>
         <ul>
-          {{#each parks}}
-          <li>{{ this.name }}</li>
+          {{#each profiles}}
+            {{#unless hasVisited}}
+              <li>{{ this.name }}</li>
+            {{/unless}}
           {{/each}}
         </ul>
       </div>
       <div class="col-sm">
         <p>Visited parks go in here.</p>
         <ul>
-          {{#each parks}}
-          <li>{{ this.name }}</li>
+          {{#each profiles}}
+            {{#if hasVisited}}
+              <li>{{ this.name }}</li>
+            {{/if}}
           {{/each}}
         </ul>
       </div>

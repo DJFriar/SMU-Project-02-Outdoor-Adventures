@@ -14,9 +14,9 @@ $(document).ready(() => {
   console.log(targetPark);
 
   function parks() {
-    const apiKey = "3FZIVstmbfxjuxgM1Y85FFUTEClzCGY77bojFJtF&limit=468";
+    const apiKey = process.env.APIKEY;
     const queryUrl =
-      "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey;
+      "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&limit=468";
 
     $.ajax({
       url: queryUrl,
