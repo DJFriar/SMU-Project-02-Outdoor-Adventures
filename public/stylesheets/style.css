@@ -12,6 +12,15 @@
   padding: 25px;
   border-radius: 10px;
   max-width: 90%;
+  
+
+  
+  
+  
+}
+.general-form-container img{
+width: 600px;
+border-radius: 6px;
 }
 
 .form-group {
@@ -48,4 +57,20 @@ li {
 
 h2 {
   margin-bottom: 1.5em;
+}
+.activities {
+  /* height: 10%; */
+  /* background-color: blue; */
+  /* overflow: scroll; */
+}
+.carousel-image{
+  margin:auto;
+}
+.carousel-caption{
+  position: relative;
+  left: 0;
+  top: 0;
+  padding: 2px;
+  color: #000;
+  
 }
