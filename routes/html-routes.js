@@ -1,6 +1,5 @@
 require("dotenv").config();
 // Requiring path to so we can use relative routes to our HTML files
-require("dotenv").config();
 const db = require("../models");
 const axios = require("axios");
 
@@ -38,12 +37,13 @@ module.exports = function (app) {
   });
 
   app.get("/parks", isAuthenticated, (req, res) => {
-    db.Park.findAll({}).then(data => {
-      const newArray = data.map(element => {
-        return element.dataValues;
+    // Get all parks
+    db.Park.findAll({raw: true}).then(data => {
+      data.forEach(item => {
+        item.statesFormatted = item.states.split(",").join(", ");
       });
       const hbsObject = {
-        parks: newArray
+        parks: data
       };
       res.render("parks", hbsObject);
     });
@@ -105,6 +105,10 @@ module.exports = function (app) {
       type: db.sequelize.QueryTypes.SELECT
     })
       .then((results) => {
+        results.forEach(item => {
+          item.statesFormatted = item.states.split(",").join(", ");
+        });
+        
         const hbsObject = {
           parks: results
         };
