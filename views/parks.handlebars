@@ -1,196 +1,318 @@
 <div class="profile-background fullpage-background-img">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <div class="container general-form-container all-parks-container">
+        <h2 class="text-center">All Parks</h2>
+
+        <div class="search-container">
+            <form action="/parks/search" method="GET" class="search-form">
+
+                    <div class="search-input-wrapper">
+                        <div class="form-group text-center">
+                            <input type="text" placeholder="Search by park name"
+                                class="search-input form-control">
+                        </div>
+                        <div class="search-btn-wrapper">
+                            <button type="submit" class="search-submit-btn btn btn-dark">Search</button>
+                        </div>    
+                    </div>
+
+                    <div class="filter-wrapper text-center">
+                        
+                        <div class="dropdown filter-btn-container">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                States
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="state-dropdown-container">
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[1]" type="checkbox"
+                                                    value="AL">AL</label></li>
+                                        <li><label><input class="state-input" name="regionStates[2]" type="checkbox"
+                                                    value="AK">AK</label></li>
+                                        <li><label><input class="state-input" name="regionStates[3]" type="checkbox"
+                                                    value="AR">AR</label></li>
+                                        <li><label><input class="state-input" name="regionStates[4]" type="checkbox"
+                                                    value="AZ">AZ</label></li>
+                                        <li><label><input class="state-input" name="regionStates[5]" type="checkbox"
+                                                    value="CA">CA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[6]" type="checkbox"
+                                                    value="CO">CO</label></li>
+                                        <li><label><input class="state-input" name="regionStates[7]" type="checkbox"
+                                                    value="CT">CT</label></li>
+                                        <li><label><input class="state-input" name="regionStates[8]" type="checkbox"
+                                                    value="DC">DC</label></li>
+                                        <li><label><input class="state-input" name="regionStates[9]" type="checkbox"
+                                                    value="DE">DE</label></li>
+                                    </div>
+
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[10]" type="checkbox"
+                                                    value="FL">FL</label></li>
+                                        <li><label><input class="state-input" name="regionStates[11]" type="checkbox"
+                                                    value="GA">GA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[12]" type="checkbox"
+                                                    value="HI">HI</label></li>
+                                        <li><label><input class="state-input" name="regionStates[13]" type="checkbox"
+                                                    value="IA">IA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[14]" type="checkbox"
+                                                    value="ID">ID</label></li>
+                                        <li><label><input class="state-input" name="regionStates[15]" type="checkbox"
+                                                    value="IL">IL</label></li>
+                                        <li><label><input class="state-input" name="regionStates[16]" type="checkbox"
+                                                    value="IN">IN</label></li>
+                                        <li><label><input class="state-input" name="regionStates[17]" type="checkbox"
+                                                    value="KS">KS</label></li>
+                                        <li><label><input class="state-input" name="regionStates[18]" type="checkbox"
+                                                    value="KY">KY</label></li>
+                                    </div>
+
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[19]" type="checkbox"
+                                                    value="LA">LA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[20]" type="checkbox"
+                                                    value="MA">MA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[21]" type="checkbox"
+                                                    value="MD">MD</label></li>
+                                        <li><label><input class="state-input" name="regionStates[22]" type="checkbox"
+                                                    value="ME">ME</label></li>
+                                        <li><label><input class="state-input" name="regionStates[21]" type="checkbox"
+                                                    value="MI">MI</label></li>
+                                        <li><label><input class="state-input" name="regionStates[24]" type="checkbox"
+                                                    value="MN">MN</label></li>
+                                        <li><label><input class="state-input" name="regionStates[25]" type="checkbox"
+                                                    value="MO">MO</label></li>
+                                        <li><label><input class="state-input" name="regionStates[26]" type="checkbox"
+                                                    value="MS">MS</label></li>
+                                        <li><label><input class="state-input" name="regionStates[27]" type="checkbox"
+                                                    value="MT">MT</label></li>
+                                    </div>
+
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[28]" type="checkbox"
+                                                    value="NC">NC</label></li>
+                                        <li><label><input class="state-input" name="regionStates[29]" type="checkbox"
+                                                    value="ND">ND</label></li>
+                                        <li><label><input class="state-input" name="regionStates[30]" type="checkbox"
+                                                    value="NE">NE</label></li>
+                                        <li><label><input class="state-input" name="regionStates[31]" type="checkbox"
+                                                    value="NH">NH</label></li>
+                                        <li><label><input class="state-input" name="regionStates[32]" type="checkbox"
+                                                    value="NJ">NJ</label></li>
+                                        <li><label><input class="state-input" name="regionStates[33]" type="checkbox"
+                                                    value="NM">NM</label></li>
+                                        <li><label><input class="state-input" name="regionStates[34]" type="checkbox"
+                                                    value="NV">NV</label></li>
+                                        <li><label><input class="state-input" name="regionStates[35]" type="checkbox"
+                                                    value="NY">NY</label></li>
+                                    </div>
+
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[36]" type="checkbox"
+                                                    value="OH">OH</label></li>
+                                        <li><label><input class="state-input" name="regionStates[37]" type="checkbox"
+                                                    value="OK">OK</label></li>
+                                        <li><label><input class="state-input" name="regionStates[38]" type="checkbox"
+                                                    value="OR">OR</label></li>
+                                        <li><label><input class="state-input" name="regionStates[39]" type="checkbox"
+                                                    value="PA">PA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[40]" type="checkbox"
+                                                    value="RI">RI</label></li>
+                                        <li><label><input class="state-input" name="regionStates[41]" type="checkbox"
+                                                    value="SC">SC</label></li>
+                                        <li><label><input class="state-input" name="regionStates[42]" type="checkbox"
+                                                    value="SD">SD</label></li>
+                                        <li><label><input class="state-input" name="regionStates[43]" type="checkbox"
+                                                    value="TN">TN</label></li>
+                                    </div>
+
+                                    <div class="state-col">
+                                        <li><label><input class="state-input" name="regionStates[44]" type="checkbox"
+                                                    value="TX">TX</label></li>
+                                        <li><label><input class="state-input" name="regionStates[45]" type="checkbox"
+                                                    value="UT">UT</label></li>
+                                        <li><label><input class="state-input" name="regionStates[46]" type="checkbox"
+                                                    value="VA">VA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[47]" type="checkbox"
+                                                    value="VT">VT</label></li>
+                                        <li><label><input class="state-input" name="regionStates[48]" type="checkbox"
+                                                    value="WA">WA</label></li>
+                                        <li><label><input class="state-input" name="regionStates[49]" type="checkbox"
+                                                    value="WI">WI</label></li>
+                                        <li><label><input class="state-input" name="regionStates[50]" type="checkbox"
+                                                    value="WV">WV</label></li>
+                                        <li><label><input class="state-input" name="regionStates[51]" type="checkbox"
+                                                    value="WY">WY</label></li>
+                                    </div>
+
+                                </div>
+                                <li><a class="dropdown-item" href="#">Reset Selections</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown filter-btn-container">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="designationSelect"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Designations
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="designationSelect">
+                                <div class="designation-dropdown-container">
+                                    
+                                        <div class="des-col">
+                                            <li>
+                                                <input class="des-input" name="national-historic-park" type="checkbox"
+                                                    value="national historical park">
+                                                <label for="national-historical-park">National Historical Park</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-historic-site" type="checkbox"
+                                                    value="national historic site">
+                                                <label for="national-historical-site">National Historic Site</label>
+                                            </li>
+                                            <li>                                       
+                                                <input class="des-input" name="national-recreation-area" type="checkbox"
+                                                    value="national recreation area">
+                                                <label for="national-recreation-area">National Recreation Area</label>
+                                            </li>
+                                            <li>                                       
+                                                <input class="des-input" name="national-river-&-recreation-area" type="checkbox"
+                                                    value="national river %26 recreation area">
+                                                <label for="national-river-&-recreation-area">National River & Recreation Area</label>
+                                            </li>	
+                                            <li>
+                                                <input class="des-input" name="national-monument-&-preserve"
+                                                    type="checkbox" value="national monument %26 preserve">
+                                                <label for="national-monument-&-preserve">National Monument &
+                                                    Preserve</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-monument-and-historic-shrine"
+                                                    type="checkbox" value="national monument and historic shrine">
+                                                <label for="national-monument-and-historic-shrine"> National Monument and Historic Shrine</label>
+                                            </li>
+
+                                           
+                                            <li>
+                                                <input class="des-input" name="national-battlefield" type="checkbox"
+                                                    value="national battlefield">
+                                                <label for="national-battlefield">National Battlefield</label>
+                                            </li>
+                                            <li>                                            
+                                                <input class="des-input" name="national-lakeshore" type="checkbox"
+                                                    value="national lakeshore">
+                                                <label for="national-lakeshore">National Lakeshore</label>
+                                            </li>
+                                            <li>                                              
+                                                <input class="des-input" name="national-scenic-trail" type="checkbox"
+                                                    value="national scenic trail">
+                                                <label for="national-scenic-trail">National Scenic Trail</label>
+                                            </li>
+                                            <li>                                              
+                                                <input class="des-input" name="national-scenic-river" type="checkbox"
+                                                    value="national scenic river">
+                                                <label for="national-scenic-river">National Scenic River</label>
+                                            </li>
+                                        </div>
+
+                                        <div class="des-col">
+                                            <li>                                         
+                                                <input class="des-input" name="national-park-&-preserve" type="checkbox"
+                                                    value="national park %26 preserve">
+                                                <label for="national-park-&-preserve">National Park & Preserve</label>
+                                            </li>                                        
+                                            <li>                                         
+                                                <input class="des-input" name="national-memorial" type="checkbox"
+                                                    value="national memorial">
+                                                <label for="national-memorial">National Memorial</label>
+                                            </li>
+                                            <li>                                     
+                                                <input class="des-input" name="national-seashore" type="checkbox"
+                                                    value="national seashore">
+                                                <label for="national-seashore">National Seashore</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-park" type="checkbox"
+                                                    value="national park">
+                                                 <label for="national-park">National Park</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-preserve" type="checkbox"
+                                                    value="national preserve">
+                                                 <label for="national-preserve">National Preserve</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-military-park" type="checkbox"
+                                                    value="national military park">
+                                                 <label for="national-military-park">National Military Park</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="national-historic-site" type="checkbox"
+                                                    value="national historic site">
+                                                 <label for="national-historic-site">National Historic Site</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="memorial" type="checkbox"
+                                                    value="memorial">
+                                                 <label for="memorial">Memorial</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="wild-river" type="checkbox"
+                                                    value="wild river">
+                                                 <label for="wild-river">Wild River</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="park" type="checkbox"
+                                                    value="park">
+                                                 <label for="park">Park</label>
+                                            </li>
+                                            <li>
+                                                <input class="des-input" name="parkway" type="checkbox"
+                                                    value="parkway">
+                                                 <label for="parkway">Parkway</label>
+                                            </li>
+                                        </div>
+                                </div>
+                                <a class="dropdown-item" href="#">Reset Selections</a>
+                            </ul>
+                        </div>
+                    </div>
+            </form>
+        </div>
+
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">National Park Name</th>
+                    <th>Designation</th>
+                    <th>States</th>
+                    <th scope="col">Wishlist</th>
+                    <th scope="col">Visited</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each parks}}
+                <tr>
+                    <td><a href="/parks/{{this.parkid}}" target="_blank"><span
+                                class="fas fa-info-circle"></span></a>&nbsp;{{ this.name }}</td>
+                    <td>{{ this.designation }}</td>
+                    <td>{{ this.states }}</td>
+                    <td><span class="fas fa-list-ul"> Add to Wishlist</span></td>
+                    <td><span class="fas fa-check"> Add to Visited</span></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
-  </nav>
-  <div class="container general-form-container">
-    <h2 class="text-center">All Parks</h2>
-
-    <div class="search-container">
-      <form action="/parks/search" method="GET" class="search-form">
-        <h4 class="text-center">Search</h4>
-        <div class="form-group">
-          <input type="text" placeholder="Search by park name" class="text-center search-input form-control">
-          <button type="submit" class="search-submit-btn">Search</button>
-        </div>
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown button
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <li><label><input class="state-input" name="regionStates[]" type="checkbox" value="AK">AK</label></li>
-                  <li><label><input class="state-input" name="regionStates[2]" type="checkbox" value="AL">AL</label></li>
-                  <li><label><input class="state-input" name="regionStates[3]" type="checkbox" value="AR">AR</label></li>
-                </div>
-              </div>
-            </div>
-
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here mkae this longer</a></li>
-          </ul>
-        </div>
-
-
-
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="AK">AK</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[2]" type="checkbox"
-                    value="AL">AL</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[3]" type="checkbox"
-                    value="AR">AR</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[4]" type="checkbox"
-                    value="AZ">AZ</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[5]" type="checkbox"
-                    value="CA">CA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="CO">CO</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="CT">CT</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="DC">DC</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="DE">DE</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="FL">FL</label></div>
-            </div>
-
-            <div class="col">
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="GA">GA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="HI">HI</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="IA">IA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="ID">ID</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="IL">IL</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="IN">IN</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="KS">KS</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="KY">KY</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="LA">LA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates[]" type="checkbox"
-                    value="MA">MA</label></div>
-            </div>
-
-            <div class="col">
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MD">MD</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="ME">ME</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MI">MI</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MN">MN</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MO">MO</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MS">MS</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="MT">MT</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NC">NC</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="ND">ND</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NE">NE</label></div>
-            </div>
-
-            <div class="col">
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NH">NH</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NJ">NJ</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NM">NM</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NV">NV</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="NY">NY</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="OH">OH</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="OK">OK</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="OR">OR</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="PA">PA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="RI">RI</label></div>
-            </div>
-
-            <div class="col">
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="SC">SC</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="SD">SD</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="TN">TN</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="TX">TX</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="UT">UT</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="VA">VA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="VT">VT</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="WA">WA</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="WI">WI</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="WV">WV</label></div>
-              <div class="checkbox"><label><input class="state-input" name="regionStates" type="checkbox"
-                    value="WY">WY</label></div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th scope="col">National Park Name</th>
-          <th>Designation</th>
-          <th>States</th>
-          <th scope="col">Wishlist</th>
-          <th scope="col">Visited</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each parks}}
-        <tr>
-          <td><a href="/parks/{{this.parkid}}" target="_blank"><span
-                class="fas fa-info-circle"></span></a>&nbsp;{{ this.name }}</td>
-          <td>{{ this.designation }}</td>
-          <td>{{ this.states }}</td>
-          <td><span class="fas fa-list-ul"> Add to Wishlist</span></td>
-          <td><span class="fas fa-check"> Add to Visited</span></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+</script>
 
 <script src="/js/parks.js"></script>
