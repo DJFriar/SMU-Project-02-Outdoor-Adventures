@@ -133,13 +133,4 @@ module.exports = function (app) {
       res.render("park-detail", parkObj);
     });
   });
-<<<<<<< HEAD
 };
-=======
-
-};
-
-  
-
-
->>>>>>> 1911branch
