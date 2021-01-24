@@ -9,23 +9,7 @@ h2 {
     margin-bottom: 1.5em;
 }
 
-
 .fullpage-background-img {
-<<<<<<< HEAD
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    image-rendering: optimizeQuality;
-}
-
-.general-form-container {
-    margin-top: 100px;
-    background-color: rgb(219, 217, 225, 0.8);
-    padding: 25px;
-    border-radius: 10px;
-    max-width: 90%;
-=======
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
@@ -39,12 +23,12 @@ h2 {
   padding: 25px;
   border-radius: 10px;
   max-width: 90%;
-   
+}
 
-  
-  
-  
->>>>>>> 1911branch
+@media (max-width: 800px) {
+    .general-form-container {
+        max-width: 100%;
+    }
 }
 
 .general-form-container img{
@@ -61,6 +45,14 @@ border-radius: 6px;
     background-image: url("../images/loginBackground.jpg");
 }
 
+.parks-background {
+    background-image: url("../images/profileBackground.jpg");
+}
+
+.profile-background {
+    background-image: url("../images/profileBackground.jpg");
+}
+
 .login-btn {
     margin-top: 5px;
 }
@@ -72,17 +64,6 @@ border-radius: 6px;
 .signup-btn {
     margin-top: 5px;
 }
-
-<<<<<<< HEAD
-.profile-background {
-    background-image: url("../images/profileBackground.jpg");
-    padding-bottom: 100px;
-}
-=======
-/* .profile-background {
-  background-image: url("../images/profileBackground.jpg");
-} */
->>>>>>> 1911branch
 
 /* Parks Page */
 .search-container {
@@ -118,9 +99,28 @@ border-radius: 6px;
     margin: 5px;
 }
 
+.designation-dropdown {
+    transform: none !important;
+    top: 38px !important;
+    left: -190% !important;
+    max-height: 270px;
+    overflow: scroll;
+}
+
 .designation-dropdown-container {
     display: grid;
     grid-template-columns: 325px 250px;
+}
+
+@media (max-width: 600px) {
+    .designation-dropdown {
+        left: -100% !important;
+    }
+
+    .designation-dropdown-container {
+        display: grid;
+        grid-template-columns: 325px;
+    }
 }
 
 .all-parks-container h2 {
@@ -139,3 +139,6 @@ border-radius: 6px;
   color: #000;
 }
 
+.maxwidth-700 {
+    max-width: 700px;
+}
