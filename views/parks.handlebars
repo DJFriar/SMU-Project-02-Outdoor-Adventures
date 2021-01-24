@@ -28,7 +28,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 States
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu state-dropdown" aria-labelledby="dropdownMenuButton">
                                 <div class="state-dropdown-container">
                                     <div class="state-col">
                                         <li><label><input class="state-input" id="AL" name="regionStates[1]" type="checkbox"
@@ -151,7 +151,7 @@
                                     </div>
 
                                 </div>
-                                <li><a class="dropdown-item" href="#">Reset Selections</a></li>
+                                <button class="btn btn-dark btn-block reset-selections-btn" id="states-reset">Reset Selections</button>
                             </ul>
                         </div>
 
@@ -272,9 +272,11 @@
                                             </li>
                                         </div>
                                 </div>
-                                <a class="dropdown-item" href="#">Reset Selections</a>
+                                <button class="btn btn-dark btn-block reset-selections-btn" id="designation-reset">Reset Selections</button>
                             </ul>
                         </div>
+
+                        <btn class="btn btn-dark reset-filters-btn">Reset Filters</btn>
                     </div>
             </form>
         </div>
