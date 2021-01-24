@@ -99,9 +99,28 @@ border-radius: 6px;
     margin: 5px;
 }
 
+.designation-dropdown {
+    transform: none !important;
+    top: 38px !important;
+    left: -190% !important;
+    max-height: 270px;
+    overflow: scroll;
+}
+
 .designation-dropdown-container {
     display: grid;
     grid-template-columns: 325px 250px;
+}
+
+@media (max-width: 600px) {
+    .designation-dropdown {
+        left: -100% !important;
+    }
+
+    .designation-dropdown-container {
+        display: grid;
+        grid-template-columns: 325px;
+    }
 }
 
 .all-parks-container h2 {

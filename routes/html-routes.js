@@ -95,8 +95,10 @@ module.exports = function (app) {
           queryString += (i === 0) ? " " : " OR ";
           queryString += `designation = '${designationArr[i]}'`;
         }
+      } else {
+        queryString = "Select * From parks;";
       }
-    }
+    } 
 
     console.log("---------------------------------");
     console.log(queryString);
