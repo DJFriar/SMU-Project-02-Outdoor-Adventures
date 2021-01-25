@@ -45,10 +45,6 @@ border-radius: 6px;
     background-image: url("../images/loginBackground.jpg");
 }
 
-.parks-background {
-    background-image: url("../images/profileBackground.jpg");
-}
-
 .profile-background {
     background-image: url("../images/profileBackground.jpg");
 }
@@ -65,7 +61,22 @@ border-radius: 6px;
     margin-top: 5px;
 }
 
-/* Parks Page */
+/* ----- PARKS PAGE ----- */
+.parks-background {
+    background-image: url("../images/profileBackground.jpg");
+    padding-bottom: 100px;
+}
+
+.all-parks-container {
+    background-color: rgb(180, 170, 183, 0.9); 
+}
+
+.all-parks-container h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Search-container */
 .search-container {
     max-width: 600px;
     margin: 10px auto 40px auto;
@@ -88,6 +99,7 @@ border-radius: 6px;
 
 .filter-btn-container {
     display: inline-block;
+    margin-right: 5px;
 }
 
 .state-dropdown {
@@ -131,7 +143,7 @@ border-radius: 6px;
     }
 
     .state-dropdown {
-        left: -50% !important;
+        left: -30% !important;
     }
 
     .designation-dropdown-container {
@@ -140,10 +152,78 @@ border-radius: 6px;
     }
 }
 
-.all-parks-container h2 {
-    margin-bottom: 10px;
+@media (max-width: 422px) {
+    .state-dropdown {
+        left: 0 !important;
+        max-height: 270px;
+        overflow: scroll;
+    }
+
+    .state-dropdown-container {
+        display: flex;
+    }
 }
 
+@media (max-width: 411px) {
+    .designation-dropdown {
+        left: -101% !important;
+    }
+
+    .state-dropdown {
+        left: -30% !important;
+    }
+}
+
+/* Parks Table */
+.parks-table-wrapper {
+    overflow-x: scroll;
+}
+
+.parks-table th {
+    font-size: 20px;
+}
+
+@media (max-width: 689px) {
+    .parks-table th {
+        font-size: 16px;
+    }
+}
+
+.parks-table-row-wrapper {
+    max-height: 90px !important;
+    overflow: scroll !important;
+}
+
+.park-link {
+    color: #292b2c;
+    text-decoration: none;
+}
+
+.park-link:hover{
+    color: #f7f7f7;
+}
+
+.parks-table-icon {
+    margin-right: 5px;
+}
+
+.add-to-wishlist-block {
+    cursor: pointer;
+}
+
+.add-to-wishlist-block:hover {
+    color: #f7f7f7;
+}
+
+.add-to-visited-block {
+    cursor: pointer;
+}
+
+.add-to-visited-block:hover {
+    color: #f7f7f7;
+}
+
+/* ----- PARKS DETAIL PAGE ----- */
 .carousel-image{
   margin:auto;
 }

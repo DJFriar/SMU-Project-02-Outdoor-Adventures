@@ -155,7 +155,7 @@
                             </ul>
                         </div>
 
-                        <div class="dropdown filter-btn-container">
+                        <div class="dropdown filter-btn-container mb-2">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" id="designationSelect"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Designations
@@ -281,29 +281,33 @@
             </form>
         </div>
 
-        <table class="table table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">National Park Name</th>
-                    <th>Designation</th>
-                    <th>States</th>
-                    <th scope="col">Wishlist</th>
-                    <th scope="col">Visited</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each parks}}
-                <tr>
-                    <td><a href="/parks/{{this.parkid}}" target="_blank"><span
-                                class="fas fa-info-circle"></span></a>&nbsp;{{ this.name }}</td>
-                    <td>{{ this.designation }}</td>
-                    <td>{{ this.statesFormatted }}</td> 
-                    <td><span class="fas fa-list-ul"> Add to Wishlist</span></td>
-                    <td><span class="fas fa-check"> Add to Visited</span></td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        <div class="parks-table-wrapper">
+            <table class="table table-sm parks-table">
+                <thead>
+                    <tr>
+                        <th scope="col">National Park Name</th>
+                        <th>Designation</th>
+                        <th>States</th>
+                        <th scope="col">Wishlist</th>
+                        <th scope="col">Visited</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each parks}}
+                        <tr>
+                            <td><a href="/parks/{{this.parkid}}" target="_blank"
+                                class="park-link">{{ this.name }}</a></td>
+                            <td>{{ this.designation }}</td>
+                            <td>{{ this.statesFormatted }}</td> 
+                            <td class="add-to-wishlist-block"><span class="fas fa-list-ul parks-table-icon"></span>Add to Wishlist</td>
+                            <td class="add-to-visited-block"><span class="fas fa-check parks-table-icon"></span>Add to Visited</td>
+                        </tr>
+                    
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 </div>
 
@@ -311,5 +315,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
 </script>
-
 <script src="/js/parks.js"></script>

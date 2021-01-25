@@ -10,8 +10,24 @@ $(document).ready(() => {
     window.location.href = "/parks";
   });
 
+  $("#designation-reset").click(function(event) {
+    resetSelectionsBtn(event, "designationFilters", ".des-input");
+  });
+
+  $("#states-reset").click(function(event) {
+    resetSelectionsBtn(event, "statesFilters", ".state-input");
+  });
+
   $(".search-form").submit(handleSubmit);
 });
+
+function resetSelectionsBtn (event, localStorageTarget, inputTarget) {
+  event.preventDefault();
+  localStorage.setItem(localStorageTarget, null);
+  $(inputTarget).each(function () {
+    $(this).prop("checked", false);
+  });
+}
 
 function checkLocalStorage() {
   if (localStorage.getItem("parkName")) {
