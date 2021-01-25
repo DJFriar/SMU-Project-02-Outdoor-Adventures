@@ -122,7 +122,7 @@ module.exports = function (app) {
     const parkCode = req.params.parkid;
     const apiKey = process.env.APIKEY;
     const url = "https://developer.nps.gov/api/v1/parks?&api_key=" + apiKey + "&parkCode=" + parkCode;
-    const paths = ["/images/loginBackground.jpg","/images/loginBackground2.jpg","/images/loginBackground3.webp"
+    const paths = ["/images/parkDetailBackground.jpeg","/images/parkDetailBackground2.jpeg","/images/parkDetailBackground3.jpeg","/images/parkDetailBackground4.jpeg","/images/parkDetailBackground5.jpeg"
     ];
     const arrayLength = paths.length-1;
     const randomGen = paths[Math.floor(Math.random() * arrayLength) + 1 ];
