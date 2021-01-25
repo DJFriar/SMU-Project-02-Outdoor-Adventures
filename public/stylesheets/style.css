@@ -10,19 +10,27 @@ h2 {
 }
 
 .fullpage-background-img {
-  background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
-  min-height: 100vh !important;
-  image-rendering: optimizeQuality !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    image-rendering: optimizeQuality !important;
 }
 
 .general-form-container {
-  margin-top: 100px;
-  background-color: rgb(219, 217, 225, 0.8);
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 90%;
+    margin-top: 100px;
+    background-color: rgb(219, 217, 225, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+.signup-container {
+    margin-top: 120px;
+}
+
+.login-container {
+    margin-top: 120px;
 }
 
 @media (max-width: 800px) {
@@ -31,9 +39,9 @@ h2 {
     }
 }
 
-.general-form-container img{
-width: 600px;
-border-radius: 6px;
+.general-form-container img {
+    width: 600px;
+    border-radius: 6px;
 }
 
 .form-group {
@@ -61,6 +69,75 @@ border-radius: 6px;
     margin-top: 5px;
 }
 
+/* ----- LANDING PAGE ----- */
+.landing-page-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.background-picture {
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.top-row-picture {
+    min-height: 50vh;
+}
+
+.bottom-row-picture {
+    min-height: 70vh
+}
+
+
+.picture-1 {
+    background-image: url("../images/landingPageImage1.jpg"); 
+}
+
+.picture-2 {
+    background-image: url("../images/landingPageWaterfall.webp");
+}
+
+.picture-3 {
+    background-image: url("../images/landingPageMountains.jpg");
+}
+
+.picture-4 {
+    background-image: url("../images/landingPageImage2.jpg");
+}
+
+.landing-page-content {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: rgb(219, 217, 225, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    width: 600px;
+}
+
+@media (max-width: 600px) {
+    .landing-page-content {
+        width: 100%;
+    }
+}
+
+.landing-page-content h1 {
+    margin: 15px;
+    font-size: 40px;
+}
+
+.landing-page-content p {
+    font-size: 17px;
+}
+
+.landing-page-content a {
+    margin: 10px;
+}
+
+
 /* ----- PARKS PAGE ----- */
 .parks-background {
     background-image: url("../images/profileBackground.jpg");
@@ -68,7 +145,7 @@ border-radius: 6px;
 }
 
 .all-parks-container {
-    background-color: rgb(180, 170, 183, 0.9); 
+    background-color: rgb(180, 170, 183, 0.9);
 }
 
 .all-parks-container h2 {
@@ -93,7 +170,7 @@ border-radius: 6px;
     justify-content: center;
 }
 
-.filter-wrapper h4{
+.filter-wrapper h4 {
     display: inline-block;
 }
 
@@ -199,7 +276,7 @@ border-radius: 6px;
     text-decoration: none;
 }
 
-.park-link:hover{
+.park-link:hover {
     color: #f7f7f7;
 }
 
@@ -224,18 +301,36 @@ border-radius: 6px;
 }
 
 /* ----- PARKS DETAIL PAGE ----- */
-.carousel-image{
-  margin:auto;
+.parks-detail-background {
+    padding-bottom: 100px;
 }
 
-.carousel-caption{
-  position: relative;
-  left: 0;
-  top: 0;
-  padding: 2px;
-  color: #000;
+
+.carousel-image {
+    margin: auto;
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 2px;
+    color: #000;
 }
 
 .maxwidth-700 {
     max-width: 700px;
+}
+
+.transition-fade-in {
+    animation: transitionFadeIn ease-in 0.3s;
+}
+
+@keyframes transitionFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }  
 }
