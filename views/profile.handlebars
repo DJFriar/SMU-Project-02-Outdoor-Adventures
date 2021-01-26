@@ -22,22 +22,24 @@
     <h2 class="text-center">My Parks</h2>
     <div class="row">
       <div class="col-sm">
-        <p>Wishlist parks go in here.</p>
+        <h5 style="text-align: center;">Parks I want to visit</h5>
         <ul>
-          {{#each profiles}}
-            {{#unless hasVisited}}
-              <li>{{ this.name }}</li>
-            {{/unless}}
+          {{#each wishlistParks}}
+            <li>
+              <span class="fas fa-trash btnDeleteWishlist" data-id="{{this.id}}"></span>
+              {{ this.name }}
+            </li>
           {{/each}}
         </ul>
       </div>
       <div class="col-sm">
-        <p>Visited parks go in here.</p>
+        <h5 style="text-align: center;">Parks I have already visited</h5>
         <ul>
-          {{#each profiles}}
-            {{#if hasVisited}}
-              <li>{{ this.name }}</li>
-            {{/if}}
+          {{#each visitedParks}}
+            <li>
+              <span class="fas fa-trash btnDeleteVisited" data-id="{{this.id}}"></span>
+              {{ this.name }}
+            </li>
           {{/each}}
         </ul>
       </div>
@@ -45,5 +47,5 @@
   </div>
 </div>
 
-
+<script src="/js/profile.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
