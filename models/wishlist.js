@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Profile = sequelize.define("Profile", {
+  const WishlistPark = sequelize.define("WishlistPark", {
     userID: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -7,12 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     parkID: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    hasVisited: {
-      type: DataTypes.BOOLEAN,
-      default: 0
     }
   });
 
-  return Profile;
+  return WishlistPark;
 };
