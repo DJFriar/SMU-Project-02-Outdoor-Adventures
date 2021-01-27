@@ -290,8 +290,8 @@
       <tbody>
         {{#each parks}}
         <tr>
-          <td><a href="/parks/{{this.parkid}}" target="_blank"></a>&nbsp;{{
-            this.name }}</td>
+          <td><a class="park-link" href="/parks/{{this.parkid}}" target="_blank">&nbsp;{{
+            this.name }}</a></td>
           <td>{{ this.designation }}</td>
           <td>{{ this.statesFormatted }}</td>
           <td class="add-to-wishlist-block btnAddWishlist" data-id="{{this.parkid}}"><span
