@@ -4,7 +4,7 @@
 /* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
   // Handle the Delete Wishlist button.
-  $(".btnDeleteWishlist").on("click", function(event) {
+  $(".btnDeleteWishlist").on("click", function() {
     var id = $(this).data("id");
     $.ajax("/api/delWishlistPark/" + id, {
       type: "DELETE"
@@ -18,7 +18,7 @@ $(document).ready(() => {
   });
 
   // Handle the Delete Visited button.
-  $(".btnDeleteVisited").on("click", function(event) {
+  $(".btnDeleteVisited").on("click", function() {
     var id = $(this).data("id");
     $.ajax("/api/delVisitedPark/" + id, {
       type: "DELETE"

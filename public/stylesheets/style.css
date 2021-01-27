@@ -351,3 +351,7 @@ h2 {
         opacity: 1;
     }  
 }
+
+.hidden {
+    display: none;
+}
