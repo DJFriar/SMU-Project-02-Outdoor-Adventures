@@ -258,7 +258,7 @@ h2 {
     }
 }
 
-@media (max-width: 422px) {
+@media (max-width: 450px) {
     .state-dropdown {
         left: 0 !important;
         max-height: 270px;
@@ -267,6 +267,11 @@ h2 {
 
     .state-dropdown-container {
         display: flex;
+    }
+
+    .state-dropdown-container li{
+        display: flex;
+        flex-direction: column;
     }
 }
 
