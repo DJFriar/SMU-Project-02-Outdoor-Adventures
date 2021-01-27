@@ -33,12 +33,13 @@ module.exports = function (app) {
   app.get("/profile", isAuthenticated, (req, res) => {
     db.sequelize.query("SELECT vp.id, vp.userID, vp.parkID, p.name FROM VisitedParks vp INNER JOIN Parks p ON vp.parkID = p.parkID WHERE userID = " + req.user.id, { 
       type: db.sequelize.QueryTypes.SELECT }).then(data1 => {
-      let hbsObject = {
+      const hbsObject = {
         visitedParks: data1
       };
+
       db.sequelize.query("SELECT wp.id, wp.userID, wp.parkID, p.name FROM WishlistParks wp INNER JOIN Parks p ON wp.parkID = p.parkID WHERE userID = " + req.user.id, { 
         type: db.sequelize.QueryTypes.SELECT }).then(data2 => {
-        let hbsObject = {
+        const hbsObject = {
           visitedParks: data1,
           wishlistParks: data2
         };
