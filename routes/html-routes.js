@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable curly */
 require("dotenv").config();
 // Requiring path to so we can use relative routes to our HTML files
