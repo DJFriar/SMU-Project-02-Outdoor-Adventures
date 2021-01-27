@@ -331,6 +331,12 @@ h2 {
     padding: 40px;
 }
 
+@media (min-width: 1600px) {
+  .park-detail-container {
+    max-width: 1600px;
+  }
+}
+
 .park-detail-container img {
     margin-top: 15px;
 }
