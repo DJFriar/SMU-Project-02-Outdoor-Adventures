@@ -16,7 +16,7 @@
           {{#each wishlistParks}}
             <li>
               <span class="fas fa-trash btnDeleteWishlist" data-id="{{this.id}}"></span>
-              {{ this.name }}
+              <a class="park-link" href="/parks/{{this.parkID}}" target="_blank">{{ this.name }}</a>
             </li>
           {{/each}}
         </ul>
@@ -27,7 +27,7 @@
           {{#each visitedParks}}
             <li>
               <span class="fas fa-trash btnDeleteVisited" data-id="{{this.id}}"></span>
-              {{ this.name }}
+              <a class="park-link" href="/parks/{{this.parkID}}" target="_blank">{{ this.name }}</a>
             </li>
           {{/each}}
         </ul>
