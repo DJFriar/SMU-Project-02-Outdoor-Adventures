@@ -328,14 +328,11 @@ h2 {
 /* ----- PARKS DETAIL PAGE ----- */
 .carousel-image {
     margin: auto;
-}
-
-.carousel-caption {
-    position: relative;
-    left: 0;
-    top: 0;
-    padding: 2px;
-    color: #000;
+    display: block;
+    max-width:1200px;
+    max-height:800px;
+    width: auto;
+    height: auto;
 }
 
 .maxwidth-700 {
