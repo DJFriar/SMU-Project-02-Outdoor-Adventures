@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable curly */
 /* eslint-disable vars-on-top */
 /* eslint-disable no-var */
@@ -5,6 +6,43 @@
 $(document).ready(() => {
   checkLocalStorage();
 
+  // Handle Wishlist Button
+  $(".btnAddWishlist").on("click", function(event) {
+    var id = $(this).data("id");
+    var newPark = {
+      parkid: id
+    };
+
+    $.ajax("/api/addWishlistPark/" + id, {
+      type: "PUT",
+      data: newPark
+    }).then(
+      function() {
+        console.log(id + " was added to wishlist.");
+      }
+    );
+  });
+
+  // Handle Visited Button
+  $(".btnAddVisited").on("click", function(event) {
+    console.log("Add Wishlist Clicked");
+    var id = $(this).data("id");
+    console.log("Selected Park was: " + id);
+    var newPark = {
+      parkid: id
+    };
+
+    $.ajax("/api/addVisitedPark/" + id, {
+      type: "PUT",
+      data: newPark
+    }).then(
+      function() {
+        console.log(id + " was added to visited.");
+      }
+    );
+  });
+
+  // Search related function
   $(".reset-filters-btn").click(function() {
     setLocalStorage("", null, null);
     window.location.href = "/parks";
@@ -29,7 +67,7 @@ function resetSelectionsBtn (event, localStorageTarget, inputTarget) {
   });
 }
 
-function checkLocalStorage() {
+function checkLocalStorage() {  
   if (localStorage.getItem("parkName")) {
     var parkName = localStorage.getItem("parkName");
     $(".search-input").val(parkName);

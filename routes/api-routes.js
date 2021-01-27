@@ -79,4 +79,50 @@ module.exports = function(app) {
       res.status(202).send();
     });
   });
+
+  app.put("/api/addWishlistPark/:parkid", (req, res) => {
+    const parkCode = req.params.parkid;
+    console.log("Adding " + parkCode + " to user wishlist");
+    db.WishlistPark.create({
+      userID: req.user.id,
+      parkID: parkCode
+    }).then(() => {
+      res.status(202).send();
+    });
+  });
+
+  app.delete("/api/delWishlistPark/:parkid", (req, res) => {
+    const id = req.params.parkid;
+    console.log("Removing " + id + " from wishlist");
+    db.WishlistPark.destroy({
+      where: {
+        id: id
+      }
+    }).then(() => {
+      res.status(202).send();
+    });
+  });
+
+  app.put("/api/addVisitedPark/:parkid", (req, res) => {
+    const parkCode = req.params.parkid;
+    console.log("Adding " + parkCode + " to user visited list");
+    db.VisitedPark.create({
+      userID: req.user.id,
+      parkID: parkCode
+    }).then(() => {
+      res.status(202).send();
+    });
+  });
+
+  app.delete("/api/delVisitedPark/:parkid", (req, res) => {
+    const id = req.params.parkid;
+    console.log("Removing " + id + " from visited list");
+    db.VisitedPark.destroy({
+      where: {
+        id: id
+      }
+    }).then(() => {
+      res.status(202).send();
+    });
+  });
 };
