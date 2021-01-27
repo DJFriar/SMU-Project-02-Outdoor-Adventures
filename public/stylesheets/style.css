@@ -10,19 +10,27 @@ h2 {
 }
 
 .fullpage-background-img {
-  background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
-  min-height: 100vh !important;
-  image-rendering: optimizeQuality !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    image-rendering: optimizeQuality !important;
 }
 
 .general-form-container {
-  margin-top: 100px;
-  background-color: rgb(219, 217, 225, 0.8);
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 90%;
+    margin-top: 100px;
+    background-color: rgb(219, 217, 225, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+.signup-container {
+    margin-top: 120px;
+}
+
+.login-container {
+    margin-top: 120px;
 }
 
 @media (max-width: 800px) {
@@ -31,9 +39,9 @@ h2 {
     }
 }
 
-.general-form-container img{
-width: 600px;
-border-radius: 6px;
+.general-form-container img {
+    width: 600px;
+    border-radius: 6px;
 }
 
 .form-group {
@@ -43,10 +51,6 @@ border-radius: 6px;
 
 .login-background {
     background-image: url("../images/loginBackground.jpg");
-}
-
-.parks-background {
-    background-image: url("../images/profileBackground.jpg");
 }
 
 .profile-background {
@@ -65,7 +69,91 @@ border-radius: 6px;
     margin-top: 5px;
 }
 
-/* Parks Page */
+/* ----- LANDING PAGE ----- */
+.landing-page-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.background-picture {
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.top-row-picture {
+    min-height: 50vh;
+}
+
+.bottom-row-picture {
+    min-height: 70vh
+}
+
+
+.picture-1 {
+    background-image: url("../images/landingPageImage1.jpg"); 
+}
+
+.picture-2 {
+    background-image: url("../images/landingPageWaterfall.webp");
+}
+
+.picture-3 {
+    background-image: url("../images/landingPageMountains.jpg");
+}
+
+.picture-4 {
+    background-image: url("../images/landingPageImage2.jpg");
+}
+
+.landing-page-content {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: rgb(219, 217, 225, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    width: 600px;
+}
+
+@media (max-width: 600px) {
+    .landing-page-content {
+        width: 100%;
+    }
+}
+
+.landing-page-content h1 {
+    margin: 15px;
+    font-size: 40px;
+}
+
+.landing-page-content p {
+    font-size: 17px;
+}
+
+.landing-page-content a {
+    margin: 10px;
+}
+
+
+/* ----- PARKS PAGE ----- */
+.parks-background {
+    background-image: url("../images/profileBackground.jpg");
+    padding-bottom: 100px;
+}
+
+.all-parks-container {
+    background-color: rgb(180, 170, 183, 0.9);
+}
+
+.all-parks-container h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Search-container */
 .search-container {
     max-width: 600px;
     margin: 10px auto 40px auto;
@@ -82,17 +170,30 @@ border-radius: 6px;
     justify-content: center;
 }
 
-.filter-wrapper h4{
+.filter-wrapper h4 {
     display: inline-block;
 }
 
 .filter-btn-container {
     display: inline-block;
+    margin-right: 5px;
+}
+
+.state-dropdown {
+    transform: none !important;
+    top: 38px !important;
+    left: -90% !important;
+    padding-bottom: 0;
 }
 
 .state-dropdown-container {
     display: grid;
     grid-template-columns: 70px 70px 70px 70px 70px 70px;
+}
+
+.reset-selections-btn {
+    width: 100%;
+    margin-top: 7px;
 }
 
 .state-col input {
@@ -102,9 +203,10 @@ border-radius: 6px;
 .designation-dropdown {
     transform: none !important;
     top: 38px !important;
-    left: -190% !important;
+    left: -150% !important;
     max-height: 270px;
     overflow: scroll;
+    padding-bottom: 0;
 }
 
 .designation-dropdown-container {
@@ -114,7 +216,11 @@ border-radius: 6px;
 
 @media (max-width: 600px) {
     .designation-dropdown {
-        left: -100% !important;
+        left: -60% !important;
+    }
+
+    .state-dropdown {
+        left: -30% !important;
     }
 
     .designation-dropdown-container {
@@ -123,22 +229,104 @@ border-radius: 6px;
     }
 }
 
-.all-parks-container h2 {
-    margin-bottom: 10px;
+@media (max-width: 422px) {
+    .state-dropdown {
+        left: 0 !important;
+        max-height: 270px;
+        overflow: scroll;
+    }
+
+    .state-dropdown-container {
+        display: flex;
+    }
 }
 
-.carousel-image{
-  margin:auto;
+@media (max-width: 411px) {
+    .designation-dropdown {
+        left: -101% !important;
+    }
+
+    .state-dropdown {
+        left: -30% !important;
+    }
 }
 
-.carousel-caption{
-  position: relative;
-  left: 0;
-  top: 0;
-  padding: 2px;
-  color: #000;
+/* Parks Table */
+.parks-table-wrapper {
+    overflow-x: scroll;
+}
+
+.parks-table th {
+    font-size: 20px;
+}
+
+@media (max-width: 689px) {
+    .parks-table th {
+        font-size: 16px;
+    }
+}
+
+.parks-table-row-wrapper {
+    max-height: 90px !important;
+    overflow: scroll !important;
+}
+
+.park-link {
+    color: #292b2c;
+    text-decoration: none;
+}
+
+.park-link:hover {
+    color: #f7f7f7;
+}
+
+.add-to-wishlist-block {
+    cursor: pointer;
+}
+
+.add-to-wishlist-block:hover {
+    color: #f7f7f7;
+}
+
+.add-to-visited-block {
+    cursor: pointer;
+}
+
+.add-to-visited-block:hover {
+    color: #f7f7f7;
+}
+
+/* ----- PARKS DETAIL PAGE ----- */
+.parks-detail-background {
+    padding-bottom: 100px;
+}
+
+
+.carousel-image {
+    margin: auto;
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 2px;
+    color: #000;
 }
 
 .maxwidth-700 {
     max-width: 700px;
+}
+
+.transition-fade-in {
+    animation: transitionFadeIn ease-in 0.3s;
+}
+
+@keyframes transitionFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }  
 }

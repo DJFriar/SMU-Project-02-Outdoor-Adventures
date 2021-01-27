@@ -1,10 +1,26 @@
 <div class="profile-background fullpage-background-img">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
+      <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Outdoor Adventures</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/parks">All Parks</a>
+                    <a class="nav-link" href="/profile">My Profile</a>
+                    <a class="nav-link" href="/logout"><span class="fas fa-sign-out-alt"></span></a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Jump to a park" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
   {{!-- Begin User Data Section --}}
   <div class="container general-form-container">
     <h2 class="text-center">My Info</h2>

@@ -4,6 +4,8 @@
 /* eslint-disable no-var */
 /* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
+  checkLocalStorage();
+
   // Handle Wishlist Button
   $(".btnAddWishlist").on("click", function(event) {
     var id = $(this).data("id");
@@ -41,6 +43,31 @@ $(document).ready(() => {
   });
 
   // Search related function
+  $(".reset-filters-btn").click(function() {
+    setLocalStorage("", null, null);
+    window.location.href = "/parks";
+  });
+
+  $("#designation-reset").click(function(event) {
+    resetSelectionsBtn(event, "designationFilters", ".des-input");
+  });
+
+  $("#states-reset").click(function(event) {
+    resetSelectionsBtn(event, "statesFilters", ".state-input");
+  });
+
+  $(".search-form").submit(handleSubmit);
+});
+
+function resetSelectionsBtn (event, localStorageTarget, inputTarget) {
+  event.preventDefault();
+  localStorage.setItem(localStorageTarget, null);
+  $(inputTarget).each(function () {
+    $(this).prop("checked", false);
+  });
+}
+
+function checkLocalStorage() {  
   if (localStorage.getItem("parkName")) {
     var parkName = localStorage.getItem("parkName");
     $(".search-input").val(parkName);
@@ -51,26 +78,26 @@ $(document).ready(() => {
       $(`#${state}`).prop("checked", true);
     });
   }
-
+    
   if (localStorage.getItem("designationFilters")) {
     var designationFilters = localStorage.getItem("designationFilters").split(",");
     var desInputTarget = "";
     var specialCharacter = /%26/;
     designationFilters.forEach(function(designation) {
-      console.log(specialCharacter.test(designation));
       if (specialCharacter.test(designation)) {
         designation = designation.replace(specialCharacter, "and");
       }
       desInputTarget = `#${designation.split(" ").join("-")}-input`;
-      console.log(desInputTarget);
       $(desInputTarget).prop("checked", true);
     });
-    console.log(designationFilters);
   }
+}
 
-  console.log("parks script ran");
-  $(".search-form").submit(handleSubmit);
-});
+function setLocalStorage (parkName, statesFilters, designationFilters) {
+  localStorage.setItem("parkName", parkName);
+  localStorage.setItem("statesFilters", statesFilters);
+  localStorage.setItem("designationFilters", designationFilters);
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -103,8 +130,6 @@ function handleSubmit(event) {
     });
   }
 
-  localStorage.setItem("parkName", input);
-  localStorage.setItem("statesFilters", states);
-  localStorage.setItem("designationFilters", designations);
+  setLocalStorage(input, states, designations);
   window.location.replace(searchURL);
 }

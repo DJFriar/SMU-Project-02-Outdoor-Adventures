@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 require("dotenv").config();
 // Requiring path to so we can use relative routes to our HTML files
 const db = require("../models");
@@ -9,6 +10,10 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the profile page
+    res.render("landingpage");
+  });
+
+  app.get("/signup", (req, res) => {
     if (req.user) {
       res.redirect("/profile");
     } else {
@@ -62,52 +67,40 @@ module.exports = function (app) {
     let designationArr;
     let queryString = "Select * From parks Where";   
 
-    if (req.query.name) { parkName = req.query.name; }
-    if (req.query.states) { statesArr = req.query.states.split(","); }
-    if (req.query.des) { designationArr = req.query.des.split(","); }
+    if (req.query.name) { 
+      parkName = req.query.name;
+      queryString += ` name REGEXP '${parkName}'`;
+      if (req.query.states || req.query.des) queryString += " AND"; 
+    }
 
-    if (parkName && statesArr && designationArr) {
-      for (let i = 0; i < statesArr.length; i++) { 
-        for (let j = 0; j < designationArr.length; j++) {
-          queryString += (i === 0 && j === 0) ? " " : " OR "; 
-          queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0 AND designation = '${designationArr[j]}'`;
+    if (req.query.states) { 
+      statesArr = req.query.states.split(",");
+      let stateRegex = "";
+      statesArr.forEach((state, index) => {
+        stateRegex += state;
+        if (index < statesArr.length - 1) {
+          stateRegex += "|";
         }
-      }
-    } else if (statesArr && designationArr) {
-      for (let i = 0; i < statesArr.length; i++) { 
-        for (let j = 0; j < designationArr.length; j++) {
-          queryString += (i === 0 && j === 0) ? " " : " OR ";
-          queryString += `locate('${statesArr[i]}', states)>0 AND designation = '${designationArr[j]}'`;
-        }
-      }
-    } else if (parkName && statesArr) {
-      for (let i = 0; i < statesArr.length; i++) {
-        queryString += (i === 0) ? " " : " OR ";
-        queryString += `locate('${parkName}', name)>0 AND locate('${statesArr[i]}', states)>0`;
-      }
-    } else if (parkName && designationArr) {
-      for (let i = 0; i < designationArr.length; i++) {
-        queryString += (i === 0) ? " " : " OR ";
-        queryString += `locate('${parkName}', name)>0 AND designation = '${designationArr[i]}'`;
-      }
-    } else {
-      if (parkName) { queryString += ` locate('${parkName}', name)>0;`; } 
-      else if (statesArr) {
-        for (let i = 0; i < statesArr.length; i++) {
-          queryString += (i === 0) ? " " : " OR ";
-          queryString += ` locate('${statesArr[i]}', states)>0`;
-        } 
-      } else if (designationArr) {
-        for (let i = 0; i < designationArr.length; i++) {
-          queryString += (i === 0) ? " " : " OR ";
-          queryString += `designation = '${designationArr[i]}'`;
-        }
-      } else {
-        queryString = "Select * From parks;";
-      }
-    } 
+      }); 
+      queryString += ` states REGEXP '${stateRegex}'`;
+      if (req.query.des) queryString += " AND";
+    }
 
-    console.log("---------------------------------");
+    if (req.query.des) { 
+      designationArr = req.query.des.split(",");
+      let designationString = "";
+      designationArr.forEach((des, index) => {
+        designationString += `'${des}'`;
+        if (index < designationArr.length - 1) {
+          designationString += ",";
+        }
+      });
+      queryString += ` designation IN (${designationString})`;
+    }
+
+    if (!req.query.name && !req.query.states && !req.query.des) {
+      queryString = "Select * From Parks;";
+    }
     console.log(queryString);
 
     db.sequelize.query(queryString, {
