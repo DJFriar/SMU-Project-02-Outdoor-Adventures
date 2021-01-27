@@ -69,6 +69,27 @@ h2 {
     margin-top: 5px;
 }
 
+/* ----- PROFILE PAGE ----- */
+.profile-title {
+    border-bottom: 1px solid;
+}
+
+.btnDeleteWishlist {
+    cursor: pointer;
+}
+
+.btnDeleteWishlist:hover {
+    color: #f7f7f7;
+}
+
+.btnDeleteVisited {
+    cursor: pointer;
+}
+
+.btnDeleteVisited:hover {
+    color: #f7f7f7;
+}
+
 /* ----- LANDING PAGE ----- */
 .landing-page-container {
     display: grid;
@@ -297,10 +318,6 @@ h2 {
 }
 
 /* ----- PARKS DETAIL PAGE ----- */
-.parks-detail-background {
-    padding-bottom: 100px;
-}
-
 
 .carousel-image {
     margin: auto;
