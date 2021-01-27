@@ -5,20 +5,20 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid general-form-container justify-content-center">
+  <div class="container-fluid park-detail-container general-form-container justify-content-center">
     <h2 class="text-center">{{ this.fullName }} </h2>
     <p>{{this.description}}</p>
     <div class="row align-content-center">
       <div class="col">
-        <img class="d-block w-100 carousel-image" src={{this.images.[0].url}}>
-        <div class="text-center">
+        <img class="d-block w-100 carousel-image mb-3" src={{this.images.[0].url}}>
+        <div class="text-center mt-2">
           {{this.images.[0].caption}}
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col"align="center">
-      <p>For more info visit us <a href={{this.url}}>here</a></p>.
+      <p class="web-link">For more info visit us <a href={{this.url}}>here</a></p>.
       </div>
     </div>
   </div>

@@ -326,6 +326,25 @@ h2 {
 }
 
 /* ----- PARKS DETAIL PAGE ----- */
+.park-detail-container {
+    max-width: 850px;
+    padding: 40px;
+}
+
+.park-detail-container img {
+    margin-top: 15px;
+}
+
+.park-detail-container h2 {
+    margin-bottom: 30px;
+}
+
+.web-link {
+    font-style: italic;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
 .carousel-image {
     margin: auto;
     display: block;
