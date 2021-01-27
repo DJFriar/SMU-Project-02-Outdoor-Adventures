@@ -45,7 +45,6 @@ module.exports = function (app) {
           wishlistParks: data2
         };
         res.render("profile", hbsObject);
-        console.log(hbsObject);
       });
     });
   });
@@ -128,12 +127,10 @@ module.exports = function (app) {
     ];
     const arrayLength = paths.length-1;
     const randomGen = paths[Math.floor(Math.random() * arrayLength) + 1 ];
-    console.log(randomGen);
     
     axios.get(url).then((response) => {
       const parkObj = response.data.data[0];
       parkObj.randomImage = randomGen;
-      console.log(parkObj);
       res.render("park-detail", parkObj);
     });
   });
