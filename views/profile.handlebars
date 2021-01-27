@@ -5,24 +5,13 @@
       </div>
     </div>
   </nav>
-  {{!-- Begin User Data Section --}}
-  <div class="container general-form-container">
-    <h2 class="text-center">My Info</h2>
-    <div class="row">
-      <div class="col-sm">
-        <p>Username:</p>
-      </div>
-      <div class="col-sm">
-        <p>Home Zip:</p>
-      </div>
-    </div>
-  </div>
+ 
   {{!-- Begin Park Data Section --}}
   <div class="container general-form-container">
     <h2 class="text-center">My Parks</h2>
     <div class="row">
-      <div class="col-sm">
-        <h5 style="text-align: center;">Parks I want to visit</h5>
+      <div class="col-sm mb-3">
+        <h5 class="text-center">Parks I want to visit</h5>
         <ul>
           {{#each wishlistParks}}
             <li>
@@ -33,7 +22,7 @@
         </ul>
       </div>
       <div class="col-sm">
-        <h5 style="text-align: center;">Parks I have already visited</h5>
+        <h5 class="text-center">Parks I have already visited</h5>
         <ul>
           {{#each visitedParks}}
             <li>
