@@ -77,7 +77,6 @@ h2 {
     padding-bottom: 150px;
 }
 
-
 .profile-title {
     border-bottom: 1px solid;
 }
@@ -154,8 +153,9 @@ h2 {
 }
 
 .landing-page-content h1 {
-    margin: 15px;
+    margin: 0 3px;
     font-size: 40px;
+    display: inline-block;
 }
 
 .landing-page-content p {
