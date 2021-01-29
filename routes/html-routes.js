@@ -66,7 +66,7 @@ module.exports = function (app) {
     let parkName;
     let statesArr;
     let designationArr;
-    let queryString = "Select * From parks Where";   
+    let queryString = "Select * From Parks Where";   
 
     if (req.query.name) { 
       parkName = req.query.name;
