@@ -6,16 +6,16 @@
 This application is designed to allow the user to easily look up and access information about all of the national parks in the United states.  Users sign up to an account and are able to navigate through a table that stores all the data for the national parks.  This table includes search filters that allow users to search for a park by it’s name, state, designation or any combination of those search filters.  The user is able to add the parks to there profile to keep track of ones they have either visited or are interested in going to.  The user is also able to click on a specific park in the table to find out more information about the park and a link to the park’s website.  All data is provided by the national parks api.
 
 ## Collaborators
-[Tommy Craft](https://github.com/DJFriar)
-[Harrison Glover](https://github.com/Glove1911) 
-[Mark Mulligan](https://github.com/Mark-Mulligan) 
+[Tommy Craft](https://github.com/DJFriar) <br/>
+[Harrison Glover](https://github.com/Glove1911) <br/>
+[Mark Mulligan](https://github.com/Mark-Mulligan)
 
 ## Table of Contents
-* [Technical Features](#Technical%20Features)
+* [Technical-Features](#Technical-Features)
 * [Installation](#installation)
 * [Usage](#usage)
 
-## Technical Features
+## Technical-Features
 * Uses passport to authenticate users
 * Populates database using parks api request when the server is started.  This allows for the data to be updated easily and makes sure it is up to date.
 * Use Sequilize to interact with database.
@@ -33,8 +33,8 @@ This application is designed to allow the user to easily look up and access info
 
 ## Installation
 ### View the Project Live
-If you would like to view this project live, you can use the link Below.
-https://ultimatelistapp.herokuapp.com/
+If you would like to view this project live, you can use the link Below. <br/>
+https://smu-project-outdoor-adventures.herokuapp.com/
 
 ### Run the Project Locally
 ** This project requires node.js and mySQL to run locally so make sure those are installed on your device.  **
@@ -63,17 +63,16 @@ npm install
 * Step 6: Make sure to update the config.js file in the config folder with your correct local data to connect to your instance of mySQL.
 
 * Step 7: Visit the national parks api and sign up to get you api key.  This will be used to make a request to their api to populate the database for this project when the server is started. Then update the api key in the places it is used (listed below).
-[National Parks Service API](https://www.nps.gov/subjects/digital/nps-data-api.htm)
+[National Parks Service API](https://www.nps.gov/subjects/digital/nps-data-api.htm) <br/>
 
-API KEY USED
-line 124 in /routes/html-routes.js
-Line 6 in /seed.js
++ API KEY USED <br/>
++ line 124 in /routes/html-routes.js <br/>
++ Line 6 in /seed.js
 
 * Step 8: While in the project directory, run the program using node using the command below. Open you browser and navigate to localhost:8080 to view the application.
 ```bash
 node app.js
 ```  
-
 
 ## Usage 
 #### Make An Account
