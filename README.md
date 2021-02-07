@@ -1,6 +1,6 @@
 # Outdoor-Adventures
 
-<img src="./readme_images/landingPageScreenshot.png" alt="App picture" width="500px" height="250px">
+<img src="./readme_images/landingPageScreenshot.jpg" alt="App picture" width="500px" height="250px">
 
 ## Description 
 This application is designed to allow the user to easily look up and access information about all of the national parks in the United states.  Users sign up to an account and are able to navigate through a table that stores all the data for the national parks.  This table includes search filters that allow users to search for a park by it’s name, state, designation or any combination of those search filters.  The user is able to add the parks to there profile to keep track of ones they have either visited or are interested in going to.  The user is also able to click on a specific park in the table to find out more information about the park and a link to the park’s website.  All data is provided by the national parks api.
@@ -80,12 +80,12 @@ node app.js
 2.  Create a user name and password and submit the form.  That's it, your account is created. 
 3.  If you have already created an account, you can use the login in page to sign in.  
 
-<img src="./readme_images/loginScreenshot.png" alt="login page" width="500px" height="250px">
+<img src="./readme_images/loginScreenshot.jpg" alt="login page" width="500px" height="250px">
 
 #### Profile Page
 This page allows you to view parks that you have selected as either wanting to visit or have already visited.  
 
-<img src="./readme_images/profilePageScreenshot.png" alt="profile page" width="500px" height="250px">
+<img src="./readme_images/profilePageScreenshot.jpg" alt="profile page" width="500px" height="250px">
 
 #### Parks Page
 This page allows you to search through all the national parks.  You can use the search input to search via park name.  You also add filters to search based on state or park designation.  
@@ -94,5 +94,5 @@ This page allows you to search through all the national parks.  You can use the 
 * Click on Add to Visted to add the park to that section of your profile page. 
 * Click on the park name in the table to see a page with additional information about that park and a link to the parks website.   
 
-<img src="./readme_images/parksTable.png" alt="parks page" width="500px" height="250px">
+<img src="./readme_images/parksTable.jpg" alt="parks page" width="500px" height="250px">
 

@@ -1,4 +1,5 @@
 require("dotenv").config();
+const compression = require("compression");
 
 // Requiring necessary npm packages
 const express = require("express");
@@ -14,6 +15,7 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+app.use(compression());
 app.use(
   express.urlencoded({
     extended: true
